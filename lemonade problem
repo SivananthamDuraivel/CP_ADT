@@ -1,0 +1,36 @@
+//lemonade
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+      scanf("%d",&a[i]);
+    int f=0,t=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==5)
+          f++;
+        else if(a[i]==10)
+        {
+            t++;
+            f--;
+        }
+        else if(a[i]==20)
+        {
+            if(t>0 && f>0)
+            {
+               t--;
+               f--;
+            }
+            else if(f>=3)
+               f-=3;
+        }
+    }
+    if(f>=0 && t>=0)
+       printf("1");
+    else 
+       printf("0");
+}
