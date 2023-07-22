@@ -1,0 +1,54 @@
+Prime Sum
+Given an even number (greater than 2), return two prime numbers whose sum will be equal to 
+given number.
+NOTE: A solution will always exist.
+Example:
+Input: 
+4
+Output: 
+2 + 2 = 4
+If there are more than one solutions possible, return the lexicographically smaller solution.
+If [a, b] is one solution with a <= b, and [c,d] is another solution with c <= d, then
+[a, b] < [c, d]
+If a < c OR a==c AND b < d.
+
+SOLUTION:
+// smallest prime pair that sums up to give n
+
+#include<stdio.h>
+
+int isprime(int n){
+    for(int i=2;i<=n/2;i++){
+        if(n%i==0)
+        return 0;
+    }
+    return 1;
+}
+
+int main() {
+    int t;
+    printf("enter no of test cases");
+    scanf("%d",&t);
+    while(t>0){
+    int n;
+    scanf("%d",&n);
+    int a[n],counter=0;
+    for(int i=2;i<n;i++) {
+        if(isprime(i)) {
+            a[counter]=i;
+            counter++;
+        }
+    }
+    for(int i=0;i<counter;i++) {
+        int f=0;
+        for(int j=0;j<counter;j++) {
+            if(a[i]+a[j]==n) {
+                printf("%d %d ",a[i],a[j]);
+                f=1;
+                break;
+            }
+        }
+        if(f) break;
+    }
+t--;}}
+
