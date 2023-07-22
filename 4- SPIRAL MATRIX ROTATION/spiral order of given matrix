@@ -1,0 +1,62 @@
+/*    Spiral Matrix-I
+Given an n x n matrix, return all elements of the matrix in spiral order.
+Example 1:
+Input: 
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: 
+[1,2,3,6,9,8,7,4,5]
+Constraints:
+n == matrix.length
+n == matrix[i].length
+1 <= n <= 10
+-100 <= matrix[i][j] <= 100
+
+SOLUTION:    */
+
+//return  spiral order of given matrix
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n][n];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    int row=0,col=0,erow=0,ecol=0;
+    for(int i=0;i<n/2;i++)
+    {
+        row=col=i;
+        ecol=n-i-1;
+        while(col<ecol)
+        {
+            printf("%d ",a[row][col]);
+            col++;
+        }
+        erow=n-i-1;
+        while(row<erow)
+        {
+            printf("%d ",a[row][col]);
+            row++;
+        }
+        ecol=i;
+        while(col>ecol)
+        {
+            printf("%d ",a[row][col]);
+            col--;
+        }
+        erow=i;
+        while(row>erow)
+        {
+            printf("%d ",a[row][col]);
+            row--;
+        }
+    }
+    if(n%2==1)
+        printf("%d ",a[n/2][n/2]);
+}
