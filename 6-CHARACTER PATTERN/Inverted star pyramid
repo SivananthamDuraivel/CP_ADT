@@ -1,0 +1,37 @@
+Inverted Full pyramid
+Given an integer n as input, print an inverted full pyramid of n rows.
+Input Format:
+Take input an integer from stdin.
+Output Format:
+Print the pattern
+Example Input:
+10
+Output:
+* * * * * * * * * * 
+ * * * * * * * * * 
+  * * * * * * * * 
+   * * * * * * * 
+    * * * * * * 
+     * * * * * 
+      * * * * 
+       * * * 
+        * * 
+         *
+SOLUTION:
+
+//inverted pyramid
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        printf("%*s",i,"");
+        for(int j=i;j<n;j++)
+            printf("* ");
+        printf("\n");
+    }
+    
+}
