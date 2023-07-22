@@ -1,0 +1,53 @@
+/*  Given an integer N, the task is to print the pattern below for the given value of N. 
+Input: N = 4 
+Output: 
+1020304017018019020 
+**50607014015016 
+****809012013 
+******10011
+
+Input: N = 3 
+Output: 
+10203010011012 
+**4050809 
+****607 
+Approach: The idea to understand the logic behind the given pattern is stated below:
+
+By looking closely, we see that by replacing in-between zeroes with spaces, the pattern can be seen more clearly. The pattern is further divided into three different patterns.
+
+Case 1: Asterisk (*) character pattern follows a sequence from 0 and adds two more asterisks in each row, where the row is equal to N.
+Case 2: In this part, the pattern is very simple to understand. i.e the number of columns and rows will be equal to N and follows a sequence like 1, 2, 3, 4, 5…
+Case 3: Follow-up or bottom-up sequence is the interesting part where the numbers are represented from bottom to top.
+*/
+SOLUTION:
+
+#include<stdio.h>
+int main()
+{
+    int n,v=10,x,i;
+    scanf("%d",&n);
+    int s=n*n+1;
+    for( i=0;i<n;i++)
+    {
+        for(int j=0;j<i;j++)
+            printf("**");
+        for(int k=0;k<n-i;k++)
+        {
+            printf("%d",v);
+            v+=10;
+        }
+        x=s;
+        for(int l=0;l<n-i;l++)
+        { 
+            if(l==n-i-1)
+                printf("%d",s);
+            else 
+                printf("%d0",s);
+            s++;
+        }
+        printf("\n");
+        s=x-(n-i-1);
+        
+    }
+    
+}
