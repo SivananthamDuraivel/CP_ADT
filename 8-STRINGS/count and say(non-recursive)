@@ -1,0 +1,48 @@
+Count and Say
+The count-and-say sequence is the sequence of integers beginning as follows:
+1, 11, 21, 1211, 111221, . . .
+1 is read off as one 1 or 11.
+11 is read off as two 1s or 21.
+21 is read off as one 2, then one 1 or 1211.
+Given an integer n, generate the nth sequence.
+Note: The sequence of integers will be represented as a string.
+Example:
+if n = 2,
+the sequence is 11.
+
+Soluiton(non -recursive)
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    
+   int n;
+   scanf("%d",&n);
+   char curr[100]="1";
+   for(int k=1;k<n;k++)
+   {
+       char next[100]="";
+       int i=0;
+       while(i<strlen(curr))
+       {
+         int count =1;
+           while(i<strlen(curr)-1 && curr[i]==curr[i+1])
+           {
+               count++;
+               i++;
+           }
+        char temp[100],temp1[100];
+        sprintf(temp,"%d",count);
+        sprintf(temp1,"%c",curr[i]);
+        strcat(next,strcat(temp,temp1));
+        i++;
+       }
+      
+       strcpy(curr,next);
+    
+   }
+    
+    printf("%s\n",curr);  
+    
+}
